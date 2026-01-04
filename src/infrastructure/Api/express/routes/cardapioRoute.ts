@@ -1,11 +1,16 @@
-import { Router } from 'express';
+import { Router, Request, Response } from 'express';
 import { CardapioController } from '../CardapioController.js';
 import { pool } from '../../../../config/postgresConfig.js';
 
 const cardapioRoute = Router();
 const controller = new CardapioController(pool);
 
-cardapioRoute.get('/', controller.list);
-cardapioRoute.get('/:id', controller.findById);
+cardapioRoute.get('/', async (req: Request, res: Response) => { 
+    await controller.list(req, res)
+});
+
+cardapioRoute.get('/:id', async (req: Request, res: Response) => {
+    await controller.findById(req, res)
+});
 
 export default cardapioRoute;

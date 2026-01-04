@@ -7,40 +7,8 @@ import { MessageHandler } from './infrastructure/MessageHandler';
 import cardapioRoute from './infrastructure/Api/express/routes/cardapioRoute';
 import pedidoRoute from './infrastructure/Api/express/routes/pedidoRoute';
 import { pool, testarConexao } from './config/postgresConfig';
-export interface Produto {
-  id: number;
-  nome: string;
-  descricao: string;
-  preco: number;
-  categoria: string;
-  disponivel: boolean;
-  criado_em: Date;
-}
+import { conversaRoute } from 'infrastructure/Api/express/routes/ConversaRoute';
 
-export interface ItemPedido {
-  id: number;
-  quantidade: number;
-}
-
-export interface Pedido {
-  id: number;
-  protocolo: string;
-  telefone: string;
-  itens: any;
-  valor_total: number;
-  status: string;
-  endereco: string;
-  criado_em: Date;
-}
-
-export interface Conversa {
-  id: number;
-  telefone: string;
-  mensagem: string;
-  resposta: string | null;
-  tipo: string | null;
-  criado_em: Date;
-}
 
 async function main() {
   dotenv.config();
@@ -51,13 +19,15 @@ async function main() {
   const sock = await baileysConfig()
 
   const botRouter = await botRoute(sock)
+  const conversaRouter = await conversaRoute()
   const messageHandler = new MessageHandler(sock)
 
   app.use(express.json());
 
   app.use('/api/cardapio', cardapioRoute);
   app.use('/api/pedidos', pedidoRoute);
-  app.use('/api/bot', botRouter)
+  app.use('/api/bot', botRouter);
+  app.use('/api/conversa', conversaRouter)
 
   try {
     const conectado = await testarConexao();

@@ -9,8 +9,8 @@ const botRoute = Router()
 
 const botController = new BotController(sock)
 
-botRoute.post("/send-message", (req: Request, res: Response) =>{
-    botController.handle(req, res)
+botRoute.post("/send-message", async (req: Request, res: Response) =>{
+    await botController.handle(req, res)
 })
 
 return botRoute
