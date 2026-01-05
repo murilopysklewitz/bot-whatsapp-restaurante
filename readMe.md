@@ -39,27 +39,6 @@ Axios
 
 dotenv
 
-📦 Estrutura do Projeto
-/
-├── api/
-│   ├── src/
-│   │   ├── config/
-│   │   │   ├── baileysConfig.ts
-│   │   │   └── postgresConfig.ts
-│   │   ├── bot/
-│   │   │   ├── MessageHandler.ts
-│   │   │   ├── BotController.ts
-│   │   │   └── botRoute.ts
-│   │   ├── routes/
-│   │   │   ├── cardapioRoute.ts
-│   │   │   └── pedidoRoute.ts
-│   │   └── index.ts
-│   ├── Dockerfile
-│   └── package.json
-│
-├── docker-compose.yml
-└── README.md
-
 🔌 Como funciona o WhatsApp (Baileys)
 
 A conexão é feita via Baileys
