@@ -28,6 +28,13 @@ CREATE TABLE conversas (
     criado_em TIMESTAMP DEFAULT NOW()
 );
 
+CREATE TABLE usuario (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL,
+    telefone VARCHAR(20) NOT NULL,
+    endereco TEXT
+);
+
 INSERT INTO cardapio (nome, descricao, preco, categoria) VALUES
 ('Pizza Margherita', 'Molho, mussarela e manjericão', 35.00, 'pizza'),
 ('Pizza Calabresa', 'Molho, mussarela e calabresa', 38.00, 'pizza'),

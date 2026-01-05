@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { BotController } from "../botController";
+import { BotController } from "../controllers/botController";
 import { Request, Response } from "express";
 import { WASocket } from "baileys";
 

@@ -1,5 +1,5 @@
 import { Router, Request, Response } from "express";
-import { ConversaController } from "../ConversaController";
+import { ConversaController } from "../controllers/ConversaController";
 
 export async function conversaRoute() {
     const conversaRouter = Router()

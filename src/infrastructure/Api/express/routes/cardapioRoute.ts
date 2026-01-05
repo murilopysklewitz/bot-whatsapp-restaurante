@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
-import { CardapioController } from '../CardapioController.js';
 import { pool } from '../../../../config/postgresConfig.js';
+import { CardapioController } from '../controllers/CardapioController.js';
 
 const cardapioRoute = Router();
 const controller = new CardapioController(pool);

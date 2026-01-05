@@ -1,6 +1,6 @@
 import type { Pool } from "pg";
 import type { Request, Response } from "express";
-import { pool } from "../../../config/postgresConfig";
+import { pool } from "../../../../config/postgresConfig";
 export class CardapioController {
     constructor(private readonly pool: Pool){
     }

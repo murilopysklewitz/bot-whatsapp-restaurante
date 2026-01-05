@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express';
-import { PedidoController } from '../PedidoController.js';
+import { PedidoController } from '../controllers/PedidoController.js';
 import { pool } from '../../../../config/postgresConfig.js';
 
 const pedidoRoute = Router();
