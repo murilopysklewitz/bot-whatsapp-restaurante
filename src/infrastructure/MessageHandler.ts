@@ -22,6 +22,7 @@ export class MessageHandler{
 
             const textFromZap = msg.message?.conversation;
             const from = msg.key.remoteJid
+            const numero = msg.key.remoteJidAlt?.split('@')[0] 
 
             if(!textFromZap)return
             if(!from)return
@@ -35,7 +36,7 @@ export class MessageHandler{
             }
 
             try{
-            console.log("Enviando pro n8n:", process.env.N8N_WEBHOOK, { from, text });
+            console.log("Enviando pro n8n:", process.env.N8N_WEBHOOK, { from, numero,  text });
              await axios.post(n8nStringConnection, {from, text})
             }catch(error:any){
                 console.error("Erro ao enviar webhook para n8n", error.message)

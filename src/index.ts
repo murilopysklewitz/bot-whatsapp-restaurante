@@ -8,6 +8,7 @@ import cardapioRoute from './infrastructure/Api/express/routes/cardapioRoute';
 import pedidoRoute from './infrastructure/Api/express/routes/pedidoRoute';
 import { pool, testarConexao } from './config/postgresConfig';
 import { conversaRoute } from './infrastructure/Api/express/routes/conversaRoute';
+import { usuarioRoute } from './infrastructure/Api/express/routes/usuarioRoute';
 
 
 async function main() {
@@ -22,6 +23,7 @@ async function main() {
 
   const botRouter = await botRoute(sock)
   const conversaRouter = await conversaRoute()
+  const usuarioRouter = await usuarioRoute()
 
   new MessageHandler(sock)
 
@@ -31,6 +33,7 @@ async function main() {
   app.use('/api/pedidos', pedidoRoute);
   app.use('/api/bot', botRouter);
   app.use('/api/conversa', conversaRouter)
+  app.use("api/usuario", usuarioRouter)
 
   try {
     const conectado = await testarConexao();

@@ -47,7 +47,7 @@ export class ConversaController {
       const result = await pool.query<Conversa>(
         `SELECT * FROM conversas 
          WHERE telefone = $1 
-         ORDER BY criado_em DESC 
+         ORDER BY created_at DESC 
          LIMIT $2`,
         [telefone, limite]
       );
