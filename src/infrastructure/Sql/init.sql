@@ -32,7 +32,7 @@ CREATE TABLE pedidos (
 );
 
 CREATE INDEX idx_pedidos_status ON pedidos(status);
-CREATE INDEX idx_pedidos_criado_em ON pedidos(criado_em DESC);
+CREATE INDEX idx_pedidos_created_at ON pedidos(created_at DESC);
 CREATE INDEX idx_pedidos_telefone ON pedidos(telefone);
 
 

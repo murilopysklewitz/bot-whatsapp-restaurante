@@ -23,7 +23,7 @@ async function main() {
 
   const botRouter = await botRoute(sock)
   const conversaRouter = await conversaRoute()
-  const usuarioRouter = await usuarioRoute()
+  const usuarioRouter = usuarioRoute()
 
   new MessageHandler(sock)
 

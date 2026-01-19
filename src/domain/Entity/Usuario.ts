@@ -5,6 +5,7 @@ export class Usuario {
         private readonly nome: string,
         private readonly telefone: string,
         private endereco: string | undefined,
+        private estado: string,
         private readonly createdAt: Date,
         private updatedAt: Date
     ) {}
@@ -24,6 +25,7 @@ export class Usuario {
             nome,
             telefone,
             undefined,
+            'CONVERSA',
             now,
             now
         );
@@ -33,6 +35,7 @@ export class Usuario {
         nome: string,
         telefone: string,
         endereco: string | undefined,
+        estado: string,
         createdAt: Date,
         updatedAt: Date
     ): Usuario {
@@ -40,6 +43,7 @@ export class Usuario {
             nome,
             telefone,
             endereco,
+            estado,
             createdAt,
             updatedAt
         );
@@ -53,6 +57,14 @@ export class Usuario {
         this.endereco = novoEndereco;
         this.updatedAt = new Date();
     }
+    changeEstado(novoEstado: string){
+        if (!novoEstado) {
+            throw new DomainException("Endereço inválido");
+        }
+
+        this.endereco = novoEstado;
+        this.updatedAt = new Date();
+    }
 
     getNome() {
         return this.nome;
@@ -64,6 +76,10 @@ export class Usuario {
 
     getEndereco() {
         return this.endereco;
+    }
+    
+    getEstado() {
+        return this.estado
     }
 
     getCreatedAt() {
